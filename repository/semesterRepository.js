@@ -17,7 +17,31 @@ const addSemesterAsync = async (semester) => {
     })
 }
 
+const updateSemesterAsync = async (semester) => {
+    return await db.Semester.update({
+        userId  : semester.userId,
+        semesterName : semester.semesterName,
+        monthBng : semester.monthBng,
+        year : semester.year
+    },
+    {
+        where : {
+            id : semester.id
+        }
+    })
+}
+
+const deleteSemesterAsync = async (id) => {
+    return await db.Semester.destroy({
+        where :{
+            id : id
+        }
+    })
+}
+
 module.exports = {
     getSemestersAsync,
-    addSemesterAsync
+    addSemesterAsync,
+    deleteSemesterAsync,
+    updateSemesterAsync
 }

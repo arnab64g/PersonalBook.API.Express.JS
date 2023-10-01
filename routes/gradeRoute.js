@@ -24,9 +24,8 @@ router.put("/Grade", verifyAdmin, async (req, res) => {
 })
 
 router.delete("/Grade", verifyAdmin, async (req, res) =>{
-    console.log(req.query.id);
     const result = await gradeController.deleteGradeAsync(req.query.id);
- 
+    console.log(result);
     res.json(result);
 })
 
