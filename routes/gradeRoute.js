@@ -20,9 +20,14 @@ router.post("/Grade", verifyAdmin, async (req, res) => {
 router.put("/Grade", verifyAdmin, async (req, res) => {
     const result = await gradeController.updateGradeAsync(req.body);
 
-    console.log(req.body);
-
     res.json(result[0]);
+})
+
+router.delete("/Grade", verifyAdmin, async (req, res) =>{
+    console.log(req.query.id);
+    const result = await gradeController.deleteGradeAsync(req.query.id);
+ 
+    res.json(result);
 })
 
 module.exports = router;

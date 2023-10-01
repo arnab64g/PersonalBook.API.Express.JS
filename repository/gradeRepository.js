@@ -1,5 +1,4 @@
 const db = require("../database/dbconnect");
-const grade = require("../models/grade");
 
 const getGradesAsync = async() => {
     return await db.Grade.findAll();
@@ -32,8 +31,17 @@ const updateGradeAsync = async(grade) => {
         });
 }
 
+const deleteGradeAsync = async (id) => {
+    return await db.Grade.destroy({
+        where : {
+            id : id
+        }
+    })
+} 
+
 module.exports = { 
     getGradesAsync,
     addGradeAsync,
-    updateGradeAsync
+    updateGradeAsync,
+    deleteGradeAsync
 }

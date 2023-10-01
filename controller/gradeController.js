@@ -13,8 +13,13 @@ const updateGradeAsync = async (grade) => {
     return await gradeService.updateGradeAsync(grade);
 }
 
+const deleteGradeAsync = async (id) => {
+    return await gradeService.deleteGradeAsync(id);
+}
+
 module.exports = {
     getGradeAsync,
     addGradeAsync,
-    updateGradeAsync
+    updateGradeAsync,
+    deleteGradeAsync
 }
