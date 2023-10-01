@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const {verifyToken, verifyAdmin} = require("../services/authService");
 const gradeController = require("../controller/gradeController");
+require("dotenv").config();
 router.use(bodyParser.json());
 
 router.get("/Grade", verifyToken, async(req, res) =>{
@@ -17,8 +18,11 @@ router.post("/Grade", verifyAdmin, async (req, res) => {
 })
 
 router.put("/Grade", verifyAdmin, async (req, res) => {
-    console.log();
+    const result = await gradeController.updateGradeAsync(req.body);
+
     console.log(req.body);
+
+    res.json(result[0]);
 })
 
 module.exports = router;

@@ -9,7 +9,12 @@ const addGradeAsync = async (grade) => {
     return await gradeRepository.addGradeAsync(grade);
 }
 
+const updateGradeAsync = async (grade) => {
+    return await gradeRepository.updateGradeAsync(grade);
+}
+
 module.exports = {
     getGradeAsync,
-    addGradeAsync
+    addGradeAsync,
+    updateGradeAsync
 }

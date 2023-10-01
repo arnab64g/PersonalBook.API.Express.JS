@@ -2,10 +2,10 @@ const express = require("express")
 const app = express();
 const userRouter = require("./routes/userRoute");
 const gradeRouter = require("./routes/gradeRoute");
-const port = 7108
 const cors = require("cors");
-
 const db = require("./database/dbconnect");
+require("dotenv").config();
+const port = process.env.PORT;
 db.sequelize.sync();
 
 app.use(cors());

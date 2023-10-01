@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
             type : Sequelize.STRING
         },
         points : {
-            type : Sequelize.DECIMAL
+            type : Sequelize.DECIMAL(5, 2)
         },
         scale : {
             type : Sequelize.INTEGER

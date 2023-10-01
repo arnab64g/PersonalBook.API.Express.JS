@@ -1,6 +1,5 @@
-const SECRET_KEY = "123secretkey";
 const jwt = require("jsonwebtoken");
-const env = require("dotenv").config()
+require("dotenv").config()
 
 
 const verifyToken = async (req, res, next) => {
@@ -10,8 +9,7 @@ const verifyToken = async (req, res, next) => {
     }
     else{
         const tookenlist = bearerHeader.split(" ");
-        console.log(typeof tookenlist[1]);
-        jwt.verify(tookenlist[1], SECRET_KEY, function(err, decoded) {
+        jwt.verify(tookenlist[1], process.env.SECRET_KEY, function(err, decoded) {
             if (err) {
               res.status(404).send({msg : "Invalid"})
             }
@@ -30,8 +28,7 @@ const verifyAdmin = async (req, res, next) => {
     }
     else{
         const tookenlist = bearerHeader.split(" ");
-        console.log(typeof tookenlist[1]);
-        jwt.verify(tookenlist[1], SECRET_KEY, function(err, decoded) {
+        jwt.verify(tookenlist[1], process.env.SECRET_KEY, function(err, decoded) {
             if (err) {
               res.status(404).send({msg : "Invalid"})
             }
