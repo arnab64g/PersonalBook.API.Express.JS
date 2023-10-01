@@ -1,5 +1,3 @@
-const {sequelize, Sequelize} = require("../database/dbconnect");
-
 module.exports = (sequelize, Sequelize) => {
     const Grade = sequelize.define("Grade", 
     {
