@@ -19,7 +19,6 @@ const addSemesterAsync = async (semester) => {
 
 const updateSemesterAsync = async (semester) => {
     return await db.Semester.update({
-        userId  : semester.userId,
         semesterName : semester.semesterName,
         monthBng : semester.monthBng,
         year : semester.year

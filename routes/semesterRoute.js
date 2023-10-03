@@ -1,26 +1,27 @@
 const route = require("express").Router();
 const { verifyToken } = require("../services/authService");
-const semesterController = require("../controller/semesterController")
+const semesterController = require("../controller/semesterController");
+const bodyParser = require("body-parser");
+route.use(bodyParser.json());
 
-route.get("/Semester", verifyToken, async (req, res) => {
+route.get("/", verifyToken, async (req, res) => {
     const result = await semesterController.getSemesterAsync(req.query.id);
-    console.log(result);
     res.json(result);
 });
 
-route.post("/Semester", verifyToken,  async (req, res) => {
+route.post("/", verifyToken,  async (req, res) => {
     const result = await semesterController.addSemesterAsync(req.body);
 
     res.json(result);
 });
 
-route.put("/Semester", verifyToken, async (req, res) => {
+route.put("/", verifyToken, async (req, res) => {
     const result = await semesterController.updateSemesterAsync(req.body);
     
     res.json(result[0]);
 });
 
-route.delete("/Semester", verifyToken, async (req, res) => {
+route.delete("/", verifyToken, async (req, res) => {
     const result = await semesterController.deleteSemesterAsync(req.query.id);
 
     res.json(result);
