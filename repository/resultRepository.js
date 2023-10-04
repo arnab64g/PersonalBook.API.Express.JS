@@ -9,6 +9,19 @@ const addResultAsync = async (result) =>{
     });
 }
 
+const updateResultAsync = async (result) => {
+    return await db.Result.update({
+        userId : result.userId,
+        semesterId : result.semesterId,
+        gradeId : result.gradeId,
+        courseId : result.courseId
+    },{
+        where :{
+            id : result.id
+        }
+    });
+}
+
 const getResultsAsync = async (userId) => {
     let result = {
         results : [],
@@ -75,7 +88,17 @@ const getResultsAsync = async (userId) => {
     return result;
 }
 
+const deleteResultAsync = async (id) => {
+    return await db.Result.destroy({
+        where : {
+            id : id
+        }
+    });
+}
+
 module.exports = {
     addResultAsync,
-    getResultsAsync
+    getResultsAsync,
+    updateResultAsync,
+    deleteResultAsync
 }

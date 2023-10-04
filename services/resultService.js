@@ -8,7 +8,16 @@ const getResultsAsync = async (userId) =>{
     return await resultRepository.getResultsAsync(userId);
 } 
 
+const updateResultAsync = async (result) => {
+    return await resultRepository.updateResultAsync(result);
+}
+
+const deleteResultAsync = async (id) => {
+    return await resultRepository.deleteResultAsync(id);
+}
 module.exports = { 
     addResultAsync,
-    getResultsAsync
+    getResultsAsync,
+    updateResultAsync,
+    deleteResultAsync
 }

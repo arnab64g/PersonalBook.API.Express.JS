@@ -16,4 +16,16 @@ route.post("/", verifyToken, async(req, res) => {
     res.json(result);
 });
 
+route.put("/", verifyToken, async(req, res) => {
+    const result = await resultController.updateResultAsync(req.body);
+
+    res.json(result[0]);
+});
+
+route.delete("/", verifyToken, async(req, res) => {
+    const result = await resultController.deleteResultAsync(req.query.id);
+
+    res.json(result);
+});
+
 module.exports = route
