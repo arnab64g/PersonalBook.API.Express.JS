@@ -69,7 +69,7 @@ const deleteSecondaryResultAsync = async (id) => {
 const hasGradeAsync = async (gradeId) =>{
     return db.SecondaryResult.findOne({
         where:{
-            
+            gradeId : gradeId
         }
     })
 }

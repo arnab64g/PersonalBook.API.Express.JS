@@ -1,4 +1,5 @@
 const semesterRepository = require("../repository/semesterRepository");
+const resultRepository = require("../repository/resultRepository");
 
 const getSemesterAsync = async (userId) => {
     return await semesterRepository.getSemestersAsync(userId);
@@ -13,6 +14,10 @@ const updateSemesterAsync = async (semester) => {
 }
 
 const deleteSemesterAsync = async (id) => {
+    if (await resultRepository.hasSemesterAsync(id)) {
+        return 0;
+    }
+    
     return await semesterRepository.deleteSemesterAsync(id);
 }
 

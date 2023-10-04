@@ -1,4 +1,5 @@
 const courseRepository = require("../repository/courseRepository");
+const resultRepository = require("../repository/resultRepository");
 
 const getCoursesAsync = async (userId) =>{
     return await courseRepository.getCoursesAsync(userId);
@@ -13,6 +14,10 @@ const updateCourseAsync = async (course) => {
 }
 
 const deleteCourseAsync = async (course) => {
+    if (await resultRepository.hasCourseAsync(course)) {
+        return 0;
+    }
+    
     return await courseRepository.deleteCourseAsync(course);
 }
 

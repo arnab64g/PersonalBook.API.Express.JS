@@ -96,9 +96,34 @@ const deleteResultAsync = async (id) => {
     });
 }
 
+const hasSemesterAsync = async (semesterId) => {
+    return await db.Result.findOne({
+        where : {
+            semesterId : semesterId
+        }
+    })
+}
+
+const hasCourseAsync = async (courseId) =>{
+    return await db.Result.findOne({
+        where :{
+            courseId : courseId
+        }
+    })
+}
+
+const hasGradeAsync = async (gradeId) => {
+    return await db.Result.findOne({where:{
+        gradeId : gradeId
+    }})
+}
+
 module.exports = {
     addResultAsync,
     getResultsAsync,
     updateResultAsync,
-    deleteResultAsync
+    deleteResultAsync,
+    hasSemesterAsync,
+    hasCourseAsync,
+    hasGradeAsync
 }
