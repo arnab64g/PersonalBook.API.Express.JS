@@ -1,4 +1,3 @@
-const { QueryTypes } = require("sequelize");
 const db = require("../database/dbconnect");
 
 const getSecondaryResultsAsync = async (userId) => {
@@ -15,20 +14,22 @@ const getSecondaryResultsAsync = async (userId) => {
         },
         raw : true
     });
-    result.summary = await db.sequelize.query(
-        `select 
-            level, 
-            sum(grades.points) as totalPoints, 
-            COUNT(secondaryresults.id) as totalSubjects 
-        from 
-            secondaryresults 
-        inner join 
-            grades on secondaryresults.gradeId = grades.id 
-        group by 
-            level;`, 
-        {type : QueryTypes.SELECT});
-   
-    console.log(result.summary);
+    result.summary = await db.SecondaryResult.findAll({
+        attributes: [
+            "level",
+            [db.sequelize.fn("COUNT", db.sequelize.col("SecondaryResult.id")), 'totalSubjects'],
+            [db.sequelize.fn("SUM", db.sequelize.col("Grade.points")), 'totalPoints']
+        ],
+        include : {
+            model : db.Grade, attributes : []
+        },
+        where : {
+            userId : userId
+        },
+        group : ['level'],
+        raw: true
+    });
+
     return result;
 }
 
@@ -65,9 +66,18 @@ const deleteSecondaryResultAsync = async (id) => {
     })
 }
 
+const hasGradeAsync = async (gradeId) =>{
+    return db.SecondaryResult.findOne({
+        where:{
+            
+        }
+    })
+}
+
 module.exports = {
     getSecondaryResultsAsync,
     addSecondaryResultAsync,
     updateSecondaryResultAsync,
-    deleteSecondaryResultAsync
+    deleteSecondaryResultAsync,
+    hasGradeAsync
 }

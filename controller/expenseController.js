@@ -16,9 +16,14 @@ const deleteExpenseAsync = async(id) => {
     return await expenseService.deleteExpenseAsync(id);
 }
 
+const getByCategory = async (filter) => {
+    return await expenseService.getByCategory(filter);
+}
+
 module.exports = {
     addExpenseAsync,
     getExpensesAsync,
     updateExpenseAsync,
-    deleteExpenseAsync
+    deleteExpenseAsync,
+    getByCategory
 }

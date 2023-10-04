@@ -28,4 +28,11 @@ route.delete("/", verifyToken, async (req, res) => {
     res.json(result);
 });
 
+route.post("/Category", verifyToken, async(req, res) => {
+    const result = await expenseController.getByCategory(req.body);
+
+    res.json(result);
+
+})
+
 module.exports = route;

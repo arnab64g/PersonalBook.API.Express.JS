@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const db = require("../database/dbconnect");
 
 const addExpenseAsync = async (expense) => {
@@ -40,9 +41,66 @@ const deleteExpenseAsync = async (id) => {
     })
 }
 
+const getByCategory = async (filter) => {
+    console.log(filter);
+    let list = [];
+    if ( !filter.fromDate && !filter.toDate) {
+        list = await db.Expense.findAll({
+            attributes : ['category', [db.sequelize.fn("SUM", db.sequelize.col("amount")), "total"]],
+            where : {
+                userId : filter.userId
+            },
+            group : ['category']
+        });
+    }
+    else if (filter.fromDate && !filter.toDate) {
+        list = await db.Expense.findAll({
+            attributes : ['category', [db.sequelize.fn("SUM", db.sequelize.col("amount")), "total"]],
+            where : {
+                userId : filter.userId,
+                date : {
+                    [Op.gte] : filter.fromDate
+                }
+            },
+            group : ['category']
+        });
+    }
+    else if (!filter.fromDate && filter.toDate) {
+        list = await db.Expense.findAll({
+            attributes : ['category', [db.sequelize.fn("SUM", db.sequelize.col("amount")), "total"]],
+            where : {
+                userId : filter.userId,
+                date : {
+                    [Op.lte] : filter.toDate
+                },
+            },
+            group : ['category']
+        });
+    }
+    else {
+        list = await db.Expense.findAll({
+            attributes : ['category', [db.sequelize.fn("SUM", db.sequelize.col("amount")), "total"]],
+            where : {
+                userId :  filter.userId,
+                date : {
+                    [Op.between] : [filter.fromDate, filter.toDate]
+                },
+                
+            },
+            group : ['category']
+        });
+    }
+    for (let index = 0; index < list.length; index++) {
+        list[index].total = Number(list[index].total); 
+    }
+
+    return list;
+}
+
 module.exports = {
     addExpenseAsync,
     getExpensesAsync,
     updateExpenseAsync,
     deleteExpenseAsync,
+    getByCategory
 }

@@ -5,7 +5,9 @@ const bodyParser = require("body-parser");
 route.use(bodyParser.json());
 
 route.get("/", verifyToken, async(req, res) => {
-    console.log(req.query.id);
+    const result = await resultController.getResultsAsync(req.query.id);
+
+    res.json(result);
 });
 
 route.post("/", verifyToken, async(req, res) => {
