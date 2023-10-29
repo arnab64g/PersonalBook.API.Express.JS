@@ -37,6 +37,7 @@ const addSecondaryResultAsync = async (result) => {
     return await db.SecondaryResult.create({
         sl : result.sl,
         subject : result.subject,
+		userId : result.userId,
         gradeId : result.gradeId,
         isOptional : result.isOptional,
         level : result.level
