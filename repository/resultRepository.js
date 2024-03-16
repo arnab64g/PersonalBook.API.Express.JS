@@ -81,10 +81,21 @@ const getResultsAsync = async (userId) => {
         },
         group :[ 'Result.userId']
     });
+
+    if (points.length) {
+        result.totalPoints = Number(points[0].totalPoints);
+    }
+    else{
+        result.totalPoints = 0;
+    }
     
-    result.totalPoints = Number(points[0].totalPoints);
-    result.totalCredit = Number(credit[0].dataValues.totalCredits);
-    console.log("This", credit[0].dataValues.totalCredits);
+    if (credit.length) {
+        result.totalCredit = Number(credit[0].dataValues.totalCredits);
+    }
+    else{
+        result.totalCredit = 0;
+    }
+    
     return result;
 }
 
