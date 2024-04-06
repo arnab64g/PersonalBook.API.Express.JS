@@ -1,11 +1,15 @@
 const Sequelize = require("sequelize");
 
- const sequelize = new Sequelize('chvsggmp_userdb', 'chvsggmp_arnab', 'J8y34kCXwMB9VPwZYZJZ', {
-  host: 'localhost',
-  dialect:  'mysql'
-});
-   
-
+// const sequelize = new Sequelize('admin', 'defaultdb', 'brG6oUxi2s31e1zL180SJ61T', {
+//   host: 'reliably-vast-oriole-iad.a1.pgedge.io',
+//   dialect:  'postgres'
+// });  
+const sequelize = new Sequelize('postgresql://app:brG6oUxi2s31e1zL180SJ61T@reliably-vast-oriole.a1.pgedge.io/defaultdb?sslmode=require')
+// const sequelize = new Sequelize('postgres', 'postgres', '5656', {
+//   host : 'localhost',
+//   dialect : 'postgres'
+// });
+ 
 const db = {};
 
 db.Sequelize = Sequelize;
