@@ -1,9 +1,10 @@
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize('sql6694862', 'sql6694862', 'CQyXs9hLfM', {
-  host: 'sql6.freemysqlhosting.net',
+ const sequelize = new Sequelize('chvsggmp_userdb', 'chvsggmp_arnab', 'J8y34kCXwMB9VPwZYZJZ', {
+  host: 'localhost',
   dialect:  'mysql'
 });
+   
 
 const db = {};
 
