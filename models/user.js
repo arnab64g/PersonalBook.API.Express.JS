@@ -5,32 +5,40 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             defaultValue: sequelize.UUIDV4
         },
-        firstName: {
-            type: Sequelize.STRING
+        firstName : {
+            type : Sequelize.STRING,
+			allowNull : false
         },
-        lastName: {
-            type: Sequelize.STRING
+        lastName : {
+            type : Sequelize.STRING,
+			allowNull : false
         },
         email : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+			allowNull : false
         },
-        username: {
-            type : Sequelize.STRING
+        username : {
+            type : Sequelize.STRING,
+			allowNull : false
         },
         phoneNumber : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+			allowNull : false
         },
         role : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+			allowNull : false
         },
         token : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
         },
         created : {
-            type : Sequelize.DATE
+            type : Sequelize.DATE,
+			allowNull : false
         },
         password : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+			allowNull : false
         },
         address : {
             type : Sequelize.STRING
