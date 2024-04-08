@@ -6,16 +6,20 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement : true,
         },
         userId : {
-            type : Sequelize.UUID
+            type : Sequelize.UUID,
+            allowNull : false
         },
         semesterId : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         gradeId : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         courseId : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         }
     },
     {

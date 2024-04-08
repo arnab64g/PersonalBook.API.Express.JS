@@ -7,19 +7,24 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement : true
         },
         gradeName : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         points : {
-            type : Sequelize.DECIMAL(5, 2)
+            type : Sequelize.DECIMAL(5, 2),
+            allowNull : false
         },
         scale : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         minNumber : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         maxNumber : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         }
     },
     {

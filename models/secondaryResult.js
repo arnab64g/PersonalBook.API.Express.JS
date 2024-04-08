@@ -6,22 +6,28 @@ module.exports = (sequelize, Sequelize) =>{
             autoIncrement : true,
         },
         sl : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         userId : {
-            type : Sequelize.UUID
+            type : Sequelize.UUID,
+            allowNull : false
         },
         subject : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         gradeId : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull :false
         },
         isOptional : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         level : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         }
     },{
         timestamps : false

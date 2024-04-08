@@ -6,16 +6,20 @@ module.exports = (sequelize, Sequelize) =>{
             autoIncrement : true
         },
         userId : {
-            type : Sequelize.UUID
+            type : Sequelize.UUID,
+            allowNull : false
         },
         courseCode: {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         courseTitle : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         creditPoint : {
-            type : Sequelize.DECIMAL(5, 2)
+            type : Sequelize.DECIMAL(5, 2),
+             allowNull : false
         }
     },
     {

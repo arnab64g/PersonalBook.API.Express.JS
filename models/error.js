@@ -1,4 +1,3 @@
-
 const Error = {
     userNameExist : "Username is already exist.",
     phoneNumberExist : "Phone number is already exist.",

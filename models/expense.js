@@ -6,16 +6,20 @@ module.exports = (sequalize, Sequalize) =>{
             autoIncrement : true
         },
         userId : {
-            type : Sequalize.UUID
+            type : Sequalize.UUID,
+            allowNull : false
         },
         category : {
-            type : Sequalize.INTEGER
+            type : Sequalize.INTEGER,
+            allowNull : false
         },
         date : {
-            type : Sequalize.DATE
+            type : Sequalize.DATE,
+            allowNull : false
         },
         amount : {
-            type : Sequalize.DECIMAL(10, 2)
+            type : Sequalize.DECIMAL(10, 2),
+            allowNull : false
         },
         description : {
             type :Sequalize.STRING

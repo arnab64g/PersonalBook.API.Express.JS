@@ -7,16 +7,20 @@ module.exports = (sequelize, Sequelize) =>{
             primaryKey : true
         },
         userId : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         semesterName : {
-            type : Sequelize.STRING
+            type : Sequelize.STRING,
+            allowNull : false
         },
         monthBng : {
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         },
         year :{
-            type : Sequelize.INTEGER
+            type : Sequelize.INTEGER,
+            allowNull : false
         }
     },
     {
