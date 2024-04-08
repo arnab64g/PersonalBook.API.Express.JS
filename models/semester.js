@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) =>{
             primaryKey : true
         },
         userId : {
-            type : Sequalize.UUID,
+            type : Sequelize.UUID,
             allowNull : false
         },
         semesterName : {

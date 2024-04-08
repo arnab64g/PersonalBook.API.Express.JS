@@ -9,7 +9,7 @@ const sequelize = new Sequelize('postgresql://app:2NTE64d0Ef5iqjk15l23SEn7@physi
 //   host : 'localhost',
 //   dialect : 'postgres'
 // });
- postgresql://app:2NTE64d0Ef5iqjk15l23SEn7@physically-quick-mako.a1.pgedge.io/defaultdb?sslmode=require
+// postgresql://app:2NTE64d0Ef5iqjk15l23SEn7@physically-quick-mako.a1.pgedge.io/defaultdb?sslmode=require
 const db = {};
 
 db.Sequelize = Sequelize;
