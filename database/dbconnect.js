@@ -4,7 +4,7 @@ const Sequelize = require("sequelize");
 //    host: 'localhost',
 //    dialect:  'mysql'
 //  });  
-const sequelize = new Sequelize('postgresql://app:brG6oUxi2s31e1zL180SJ61T@reliably-vast-oriole.a1.pgedge.io/defaultdb?sslmode=require')
+const sequelize = new Sequelize('PGSSLMODE=require PGPASSWORD=Zg8Xr0g9HdWt9r53o5Jl11A2 psql -h physically-quick-mako-iad.a1.pgedge.io -p 5432 -U admin -d defaultdb')
 // const sequelize = new Sequelize('postgres', 'postgres', '5656', {
 //   host : 'localhost',
 //   dialect : 'postgres'
