@@ -29,7 +29,7 @@ async function createUserAsync(userData) {
         email : userData.email,
         username : userData.username,
         phoneNumber : userData.phoneNumber,
-        role : "Admin",
+        role : "User",
         token : "",
         created: new Date(),
         password : userData.password,
