@@ -2,6 +2,7 @@ const secondaryResultController = require("../controller/secondaryResultControll
 const { verifyToken } = require("../services/authService");
 const route = require("express").Router();
 const bodyParser = require("body-parser");
+
 route.use(bodyParser.json());
 
 route.get("/", verifyToken, async (req, res) => {
@@ -12,7 +13,7 @@ route.get("/", verifyToken, async (req, res) => {
 
 route.post("/", verifyToken, async (req, res) => {
     const result = await secondaryResultController.addSecondaryResultAsync(req.body);
-	console.log(req.body);
+	
     res.json(result);
 });
 

@@ -22,8 +22,8 @@ const verifyToken = async (req, res, next) => {
 
 const verifyAdmin = async (req, res, next) => {
     const bearerHeader = req.headers['authorization'];
+
     if (! bearerHeader) {
-        
         res.status(401).send({});
     }
     else{

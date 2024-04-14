@@ -12,7 +12,7 @@ route.get("/", verifyToken, async (req, res) =>{
 
 route.post("/", verifyToken, async (req, res) => {
     const result = await courseController.addCourseAsync(req.body);
-    console.log(req.body);
+    
     res.json(result);
 });
 

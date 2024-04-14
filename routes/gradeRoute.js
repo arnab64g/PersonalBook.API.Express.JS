@@ -3,7 +3,9 @@ const express = require("express");
 const router = express.Router();
 const {verifyToken, verifyAdmin} = require("../services/authService");
 const gradeController = require("../controller/gradeController");
+
 require("dotenv").config();
+
 router.use(bodyParser.json());
 
 router.get("/", verifyToken, async(req, res) =>{

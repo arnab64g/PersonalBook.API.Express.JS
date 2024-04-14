@@ -42,8 +42,8 @@ const deleteExpenseAsync = async (id) => {
 }
 
 const getByCategory = async (filter) => {
-    console.log(filter);
     let list = [];
+    
     if ( !filter.fromDate && !filter.toDate) {
         list = await db.Expense.findAll({
             attributes : ['category', [db.sequelize.fn("SUM", db.sequelize.col("amount")), "total"]],

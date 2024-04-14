@@ -6,6 +6,7 @@ route.use(bodyParser.json());
 
 route.get("/", verifyToken, async (req, res) => {
     const result = await semesterController.getSemesterAsync(req.query.id);
+    
     res.json(result);
 });
 

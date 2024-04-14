@@ -11,6 +11,10 @@ route.get("/", verifyToken, async (req, res) => {
 });
 
 route.post("/", verifyToken, async (req, res) =>{
+	if(req.body.date == null){
+		req.body.date = new Date();
+	}
+    
     const result = await expenseController.addExpenseAsync(req.body);
 
     res.json(result);
