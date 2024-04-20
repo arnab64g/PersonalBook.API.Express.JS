@@ -41,7 +41,7 @@ const getResultsAsync = async (userId) => {
 
     const points = await db.Result.findAll({
         
-        attributes : [[db.sequelize.literal("sum(Grade.points*Course.creditPoint)"), 'totalPoints']],
+        attributes : [[db.sequelize.literal("sum(points*\"creditPoint\")"), 'totalPoints']],
         include : [
             {model : db.Grade, attributes : []},
             {model : db.Course, attributes: []}
@@ -52,11 +52,12 @@ const getResultsAsync = async (userId) => {
         group : ['Result.userId'],
         raw : true
     });
-    
-    result.summary = await db.Result.findAll({
+
+    result.summary = [];
+    await db.Result.findAll({
         
-        attributes : [['semesterId' , 'semId'], [db.sequelize.literal("sum(Grade.points*Course.creditPoint)"), 'totalPoints'],
-                [db.sequelize.literal("sum(Course.creditPoint)"), "totalCredit"]], 
+        attributes : [['semesterId' , 'semId'], [db.sequelize.literal("sum(points*\"creditPoint\")"), 'totalPoints'],
+                [db.sequelize.literal("sum(\"creditPoint\")"), "totalCredit"]], 
             
         include : [
             {model : db.Grade, attributes : []},
@@ -70,8 +71,9 @@ const getResultsAsync = async (userId) => {
         raw : true
     });
     
-    const credit = await db.Result.findAll({
-        attributes : [[db.sequelize.literal("sum(Course.creditPoint)"), "totalCredits"]],
+    const credit = 
+     await db.Result.findAll({
+        attributes : [[db.sequelize.literal("sum(\"creditPoint\")"), "totalCredits"]],
         include :{
             model : db.Course,
             attributes : []
