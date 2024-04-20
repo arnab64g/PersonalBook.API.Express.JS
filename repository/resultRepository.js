@@ -32,7 +32,9 @@ const getResultsAsync = async (userId) => {
 
     result.results = await db.Result.findAll({
         include : [db.Course, db.Semester, db.Grade],
-        attributes : ['id', 'semesterId', 'Semester.semesterName', 'Semester.monthBng', 'Semester.year', 'Course.courseCode', 'Course.courseTitle', 'gradeId', 'courseId', 'Grade.gradeName', 'Grade.points', 'Course.creditPoint'], 
+        attributes : ['id', 'semesterId', 'Semester_pb.semesterName', 'Semester_pb.monthBng', 
+            'Semester_pb.year', 'Course_pb.courseCode', 'Course_pb.courseTitle', 'gradeId', 
+            'courseId', 'Grade_pb.gradeName', 'Grade_pb.points', 'Course_pb.creditPoint'], 
         where : {
             userId : userId
         },
@@ -49,12 +51,11 @@ const getResultsAsync = async (userId) => {
         where : {
             userId : userId
         },
-        group : ['Result.userId'],
+        group : ['Result_pb.userId'],
         raw : true
     });
 
-    result.summary = [];
-    await db.Result.findAll({
+    result.summary = await db.Result.findAll({
         
         attributes : [['semesterId' , 'semId'], [db.sequelize.literal("sum(points*\"creditPoint\")"), 'totalPoints'],
                 [db.sequelize.literal("sum(\"creditPoint\")"), "totalCredit"]], 
@@ -81,7 +82,7 @@ const getResultsAsync = async (userId) => {
         where : {
             userId : userId
         },
-        group :[ 'Result.userId']
+        group :[ 'Result_pb.userId']
     });
 
     if (points.length) {
@@ -98,6 +99,7 @@ const getResultsAsync = async (userId) => {
         result.totalCredit = 0;
     }
     
+    console.log(result);
     return result;
 }
 

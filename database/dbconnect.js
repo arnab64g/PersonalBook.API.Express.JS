@@ -5,6 +5,7 @@ const Sequelize = require("sequelize");
   //   dialect:  'mysql'
   // });  
 const sequelize = new Sequelize('postgresql://app:zu4B3O34Nzz710cyW5Pyc6C6@unlikely-trusting-lizard.a1.pgedge.io/notelogix?sslmode=require')
+// const sequelize = new Sequelize('postgresql://postgres:5656@localhost/personalbook');
 const db = {};
 
 db.Sequelize = Sequelize;

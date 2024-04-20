@@ -1,5 +1,5 @@
 module.exports = (sequalize, Sequalize) =>{
-    const Expense = sequalize.define("Expense", {
+    const Expense = sequalize.define("Expense_pb", {
         id : {
             type : Sequalize.INTEGER,
             primaryKey : true,
