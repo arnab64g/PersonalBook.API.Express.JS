@@ -1,10 +1,10 @@
 const Sequelize = require("sequelize");
 
-  const sequelize = new Sequelize('userdb', 'root', '5656', {
-    host: 'localhost',
-    dialect:  'mysql'
-  });  
-
+  // const sequelize = new Sequelize('userdb', 'root', '5656', {
+  //   host: 'localhost',
+  //   dialect:  'mysql'
+  // });  
+const sequelize = new Sequelize('postgres://postgres:5656@localhost/personalbook')
 const db = {};
 
 db.Sequelize = Sequelize;
