@@ -7,8 +7,8 @@ router.use(bodyParser.json())
 
 router.get('/', verifyToken, async (req, res) => {
     result = await userController.getProfileAsync(req.query.id);
-
-    res.json(result.dataValues);
+    
+    res.json(result);
 });
 
 router.post('/', async (req, res) =>{
