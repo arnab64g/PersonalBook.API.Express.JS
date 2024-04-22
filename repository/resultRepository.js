@@ -72,8 +72,7 @@ const getResultsAsync = async (userId) => {
         raw : true
     });
     
-    const credit = 
-     await db.Result.findAll({
+    const credit = await db.Result.findAll({
         attributes : [[db.sequelize.literal("sum(\"creditPoint\")"), "totalCredits"]],
         include :{
             model : db.Course,
@@ -99,7 +98,6 @@ const getResultsAsync = async (userId) => {
         result.totalCredit = 0;
     }
     
-    console.log(result);
     return result;
 }
 

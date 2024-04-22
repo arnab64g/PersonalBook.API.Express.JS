@@ -14,6 +14,7 @@ const getSecondaryResultsAsync = async (userId) => {
         },
         raw : true
     });
+    
     result.summary = await db.SecondaryResult.findAll({
         attributes: [
             "level",
