@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "personalbookapi",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -16,6 +16,20 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log"
+      ]
+    },
+    {
+      "source": "personalbookapi",
+      "codebase": "personalbookapi",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
       ]
     }
   ]
