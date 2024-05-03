@@ -9,20 +9,19 @@ const expenseRoute = require("./routes/expenseRoute");
 const resultRoute = require("./routes/resultRoute");
 const cors = require("cors");
 const db = require("./database/dbconnect");
-require("dotenv").config();
-const port = process.env.PORT;
+const port = 3000;
 
 db.sequelize.sync();
 
 app.use(cors());
 
-app.use('/api/User', userRouter);
-app.use('/api/Grade', gradeRouter);
-app.use('/api/Semester', semesterRouter);
-app.use('/api/Course', courseRouter);
-app.use('/api/SecondaryResult', secondaryRoute);
-app.use('/api/Result', resultRoute);
-app.use('/api/Expense', expenseRoute);
+app.use('/api/user', userRouter);
+app.use('/api/grade', gradeRouter);
+app.use('/api/semester', semesterRouter);
+app.use('/api/course', courseRouter);
+app.use('/api/secondaryResult', secondaryRoute);
+app.use('/api/result', resultRoute);
+app.use('/api/expense', expenseRoute);
 
 
 app.listen(port, () => {

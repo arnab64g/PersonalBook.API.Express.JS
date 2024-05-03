@@ -9,7 +9,7 @@ const verifyToken = async (req, res, next) => {
     }
     else{
         const tookenlist = bearerHeader.split(" ");
-        jwt.verify(tookenlist[1], process.env.SECRET_KEY, function(err, decoded) {
+        jwt.verify(tookenlist[1], "onceuponatimetherewasaskey", function(err, decoded) {
             if (err) {
               res.status(404).send({msg : "Invalid"})
             }
@@ -28,7 +28,7 @@ const verifyAdmin = async (req, res, next) => {
     }
     else{
         const tookenlist = bearerHeader.split(" ");
-        jwt.verify(tookenlist[1], process.env.SECRET_KEY, function(err, decoded) {
+        jwt.verify(tookenlist[1], "onceuponatimetherewasaskey", function(err, decoded) {
             if (err) {
               res.status(404).send({msg : "Invalid"})
             }

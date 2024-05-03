@@ -1,7 +1,6 @@
 const userRepository = require("../repository/userRepository");
 const errors = require("../models/error");
 const bycript = require("bcrypt");
-const SECRET_KEY = "123secretkey";
 const jwt = require("jsonwebtoken");
 
 async function createUserAsync(req) {
@@ -54,7 +53,7 @@ async function loginUserAsync(param) {
         else{
             result.successed = true;
 
-            result.token = jwt.sign({role : user.role, unique_name : user.id, actort : `${user.firstName} ${user.lastName}`}, SECRET_KEY);
+            result.token = jwt.sign({role : user.role, unique_name : user.id, actort : `${user.firstName} ${user.lastName}`}, "onceuponatimetherewasaskey");
         }
     }
     
