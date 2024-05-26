@@ -23,6 +23,7 @@ async function isPhoneExistAsync(phone) {
 }
 
 async function createUserAsync(userData) {
+    
     return await user.create({
         id : crypto.randomUUID(),
         firstName : userData.firstName,

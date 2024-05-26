@@ -1,27 +1,49 @@
-module.exports = (sequelize, Sequelize) =>{
-    const Semester = sequelize.define("Semester_pb", 
+module.exports = (sequelize) =>{
+    const Semester = sequelize.define("Semester", 
     {
-        id : {
-            type : Sequelize.INTEGER,
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
             autoIncrement : true,
-            primaryKey : true
-        },
-        userId : {
-            type : Sequelize.UUID,
-            allowNull : false
-        },
-        semesterName : {
-            type : Sequelize.STRING,
-            allowNull : false
-        },
-        monthBng : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        year :{
-            type : Sequelize.INTEGER,
-            allowNull : false
-        }
+            comment: null,
+            special: [],
+            primaryKey: true,
+            foreignKey: [Object]
+          },
+          semesterName: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          monthBng: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          year: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          userId: {
+            type: 'UUID',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          }
+        
     },
     {
         timestamps : false

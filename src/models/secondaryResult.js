@@ -1,34 +1,64 @@
 module.exports = (sequelize, Sequelize) =>{
-    const SecondaryResult = sequelize.define("SecondaryResult_pb", {
-        id : {
-            type : Sequelize.INTEGER,
-            primaryKey : true,
-            autoIncrement : true,
-        },
-        sl : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        userId : {
-            type : Sequelize.UUID,
-            allowNull : false
-        },
-        subject : {
-            type : Sequelize.STRING,
-            allowNull : false
-        },
-        gradeId : {
-            type : Sequelize.INTEGER,
-            allowNull :false
-        },
-        isOptional : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        level : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        }
+    const SecondaryResult = sequelize.define("SecondaryResult", {
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
+            autoIncremeny : true,
+            comment: null,
+            special: [],
+            primaryKey: true,
+            foreignKey: [Object]
+          },
+          sl: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          subject: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          isOptional: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          level: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          userId: {
+            type: 'UUID',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          },
+          gradeId: {
+            type: 'INTEGER',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          }
     },{
         timestamps : false
     });

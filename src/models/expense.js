@@ -1,29 +1,55 @@
-module.exports = (sequalize, Sequalize) =>{
-    const Expense = sequalize.define("Expense_pb", {
-        id : {
-            type : Sequalize.INTEGER,
-            primaryKey : true,
-            autoIncrement : true
-        },
-        userId : {
-            type : Sequalize.UUID,
-            allowNull : false
-        },
-        category : {
-            type : Sequalize.INTEGER,
-            allowNull : false
-        },
-        date : {
-            type : Sequalize.DATE,
-            allowNull : false
-        },
-        amount : {
-            type : Sequalize.DECIMAL(10, 2),
-            allowNull : false
-        },
-        description : {
-            type :Sequalize.STRING
-        }
+module.exports = (sequalize) =>{
+    const Expense = sequalize.define("Expense", {
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
+            autoIncrement : true,
+            comment: null,
+            special: [],
+            primaryKey: true,
+            foreignKey: [Object]
+          },
+          category: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          date: {
+            type: 'TIMESTAMP WITHOUT TIME ZONE',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          amount: {
+            type: 'NUMERIC',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          description: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          userId: {
+            type: 'UUID',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          }
     },
     {
         timestamps : false

@@ -18,7 +18,7 @@ router.post('/', async (req, res) =>{
 });
 
 router.post('/login', async(req, res) => {
-    
+    console.log(req.body);
     let result = await userController.loginUserAsync(req.body);
 
     res.json(result);

@@ -1,26 +1,47 @@
-module.exports = (sequelize, Sequelize) =>{
-    const Course = sequelize.define("Course_pb" , {
-        id : {
-            type : Sequelize.INTEGER,
-            primaryKey : true,
-            autoIncrement : true
-        },
-        userId : {
-            type : Sequelize.UUID,
-            allowNull : false
-        },
-        courseCode: {
-            type : Sequelize.STRING,
-            allowNull : false
-        },
-        courseTitle : {
-            type : Sequelize.STRING,
-            allowNull : false
-        },
-        creditPoint : {
-            type : Sequelize.DECIMAL(5, 2),
-             allowNull : false
-        }
+module.exports = (sequelize) =>{
+    const Course = sequelize.define("Course" , {
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
+            autoIncrement : true,
+            comment: null,
+            special: [],
+            primaryKey: true,
+            foreignKey: [Object]
+          },
+          courseCode: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          courseTitle: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          creditPoint: {
+            type: 'NUMERIC',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          userId: {
+            type: 'UUID',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          }
     },
     {
         timestamps : false

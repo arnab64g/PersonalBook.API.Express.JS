@@ -1,26 +1,50 @@
-module.exports = (sequelize, Sequelize) => {
-    const Result = sequelize.define("Result_pb", {
-        id : {
-            type : Sequelize.INTEGER,
-            primaryKey : true,
+module.exports = (sequelize) => {
+    const Result = sequelize.define("Result", {
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
             autoIncrement : true,
-        },
-        userId : {
-            type : Sequelize.UUID,
-            allowNull : false
-        },
-        semesterId : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        gradeId : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        courseId : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        }
+            comment: null,
+            special: [],
+            primaryKey: true,
+            foreignKey: [Object]
+          },
+          semesterId: {
+            type: 'INTEGER',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          },
+          gradeId: {
+            type: 'INTEGER',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          },
+          courseId: {
+            type: 'INTEGER',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          },
+          userId: {
+            type: 'UUID',
+            allowNull: true,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false,
+            foreignKey: [Object]
+          }
     },
     {
         timestamps : false

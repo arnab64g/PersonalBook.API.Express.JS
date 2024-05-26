@@ -1,31 +1,55 @@
-module.exports = (sequelize, Sequelize) => {
-    const Grade = sequelize.define("Grade_pb", 
+module.exports = (sequelize) => {
+    const Grade = sequelize.define("Grade", 
     {
-        id : {
-            type : Sequelize.INTEGER,
+        id: {
+            type: 'INTEGER',
+            allowNull: false,
+            autoIncrement : true,
+            comment: null,
+            special: [],
             primaryKey: true,
-            autoIncrement : true
-        },
-        gradeName : {
-            type : Sequelize.STRING,
-            allowNull : false
-        },
-        points : {
-            type : Sequelize.DECIMAL(5, 2),
-            allowNull : false
-        },
-        scale : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        minNumber : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        },
-        maxNumber : {
-            type : Sequelize.INTEGER,
-            allowNull : false
-        }
+            foreignKey: [Object]
+          },
+          gradeName: {
+            type: 'CHARACTER VARYING',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          points: {
+            type: 'NUMERIC',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          scale: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          minNumber: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          },
+          maxNumber: {
+            type: 'INTEGER',
+            allowNull: false,
+            defaultValue: null,
+            comment: null,
+            special: [],
+            primaryKey: false
+          }
     },
     {
         timestamps : false

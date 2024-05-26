@@ -15,6 +15,7 @@ db.sequelize.sync();
 
 app.use(cors());
 
+
 app.use('/api/user', userRouter);
 app.use('/api/grade', gradeRouter);
 app.use('/api/semester', semesterRouter);
