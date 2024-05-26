@@ -8,7 +8,7 @@ const getSecondaryResultsAsync = async (userId) => {
 
     result.results = await db.SecondaryResult.findAll({
         include : db.Grade,
-        attributes : ['id', 'sl', 'subject', 'Grade_pb.gradeName', 'userId', 'gradeId', 'isOptional', 'level', 'Grade_pb.points'],
+        attributes : ['id', 'sl', 'subject', 'Grade.gradeName', 'userId', 'gradeId', 'isOptional', 'level', 'Grade.points'],
         where : {
             userId : userId
         },
@@ -18,7 +18,7 @@ const getSecondaryResultsAsync = async (userId) => {
     result.summary = await db.SecondaryResult.findAll({
         attributes: [
             "level",
-            [db.sequelize.literal("COUNT(\"SecondaryResult\".\"id\")"), 'totalSubjects'],
+            [db.sequelize.literal("COUNT(\"Secondaryresult\".\"id\")"), 'totalSubjects'],
             [db.sequelize.literal("SUM(\"points\")"), 'totalPoints']
         ],
         include : {

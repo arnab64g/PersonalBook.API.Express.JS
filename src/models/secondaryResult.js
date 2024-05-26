@@ -1,9 +1,9 @@
-module.exports = (sequelize, Sequelize) =>{
+module.exports = (sequelize) =>{
     const SecondaryResult = sequelize.define("Secondaryresult", {
         id: {
             type: 'INTEGER',
             allowNull: false,
-            autoIncremeny : true,
+            autoIncrement : true,
             comment: null,
             special: [],
             primaryKey: true,

@@ -1,7 +1,5 @@
 const Sequelize = require("sequelize");
-
-// const sequelize = new Sequelize('postgresql://admin:7hYbMh60tn28g33662iwRJDV@unlikely-trusting-lizard.a1.pgedge.io/notelogix?sslmode=require')
-const sequelize = new Sequelize('postgresql://postgres:5656@localhost/notelogix');
+const sequelize = new Sequelize('postgresql://admin:7hYbMh60tn28g33662iwRJDV@unlikely-trusting-lizard.a1.pgedge.io/notelogix?sslmode=require');
 const db = {};
 
 db.Sequelize = Sequelize;
@@ -16,8 +14,6 @@ db.Course = require("../models/course")(sequelize);
 db.Result = require("../models/result")(sequelize);
 db.Expense = require("../models/expense")(sequelize);
 
-// db.User.belongsToMany(db.Semester, {through : 'userId'});
-// db.Semester.hasOne(db.User, {through : 'userId'})
 db.SecondaryResult.belongsTo(db.Grade, {foreignKey: 'gradeId'});
 db.Grade.hasOne (db.SecondaryResult, {foreignKey: 'gradeId'});
 
