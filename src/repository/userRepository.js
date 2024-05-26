@@ -1,23 +1,25 @@
 const crypto = require("crypto");
 const db = require("../database/dbconnect");
 const { Op } = require("sequelize");
-const { Json } = require("sequelize/lib/utils");
 const user = db.User;
 
 async function isUsernameExistAsync(uname) {
     return await user.count({
+       
         where : {username : uname}
     });
 }
 
 async function isEmailExistAsync(email) {
     return await user.count({
+       
         where : {email : email }
     });
 }
 
 async function isPhoneExistAsync(phone) {
     return await user.count({
+        
         where : {phoneNumber : phone }
     });
 }
@@ -40,7 +42,9 @@ async function createUserAsync(userData) {
 }
 
 async function getUserAsync(key) {
+    console.log("Exe");
     return await user.findOne({
+        attributes :["id", "firstName", "lastName", "email", "username", "phoneNumber", "role", "token", "created", "address", "password"],
         where : { 
             [Op.or] : [{username : key}, {email : key }, {phoneNumber : key}]}
     });

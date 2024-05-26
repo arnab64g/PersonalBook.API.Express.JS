@@ -18,7 +18,7 @@ const getSecondaryResultsAsync = async (userId) => {
     result.summary = await db.SecondaryResult.findAll({
         attributes: [
             "level",
-            [db.sequelize.literal("COUNT(\"SecondaryResult_pb\".\"id\")"), 'totalSubjects'],
+            [db.sequelize.literal("COUNT(\"SecondaryResult\".\"id\")"), 'totalSubjects'],
             [db.sequelize.literal("SUM(\"points\")"), 'totalPoints']
         ],
         include : {

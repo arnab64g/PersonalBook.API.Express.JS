@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) =>{
-    const SecondaryResult = sequelize.define("SecondaryResult", {
+    const SecondaryResult = sequelize.define("Secondaryresult", {
         id: {
             type: 'INTEGER',
             allowNull: false,

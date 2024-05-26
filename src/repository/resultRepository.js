@@ -32,9 +32,9 @@ const getResultsAsync = async (userId) => {
 
     result.results = await db.Result.findAll({
         include : [db.Course, db.Semester, db.Grade],
-        attributes : ['id', 'semesterId', 'Semester_pb.semesterName', 'Semester_pb.monthBng', 
-            'Semester_pb.year', 'Course_pb.courseCode', 'Course_pb.courseTitle', 'gradeId', 
-            'courseId', 'Grade_pb.gradeName', 'Grade_pb.points', 'Course_pb.creditPoint'], 
+        attributes : ['id', 'semesterId', 'Semester.semesterName', 'Semester.monthBng', 
+            'Semester.year', 'Course.courseCode', 'Course.courseTitle', 'gradeId', 
+            'courseId', 'Grade.gradeName', 'Grade.points', 'Course.creditPoint'], 
         where : {
             userId : userId
         },
@@ -51,7 +51,7 @@ const getResultsAsync = async (userId) => {
         where : {
             userId : userId
         },
-        group : ['Result_pb.userId'],
+        group : ['Result.userId'],
         raw : true
     });
 
@@ -81,7 +81,7 @@ const getResultsAsync = async (userId) => {
         where : {
             userId : userId
         },
-        group :[ 'Result_pb.userId']
+        group :[ 'Result.userId']
     });
 
     if (points.length) {
